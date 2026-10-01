@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "learner_id": null,
+  "subject_id": null,
+  "subject_name": null,
+  "goal_tasks": [],
+  "prior_experience": null,
+  "instruction_language": null,
+  "timezone": null,
+  "holiday_region": null,
+  "canonical_store": null,
+  "data_root": null,
+  "curriculum": {"milestones": [], "metrics": [], "rubric_version": "1"},
+  "schedule": {
+    "study_weekdays_iso": [1, 2, 3, 4, 5],
+    "rest_on_public_holidays": true,
+    "custom_rest_dates": [],
+    "follow_makeup_workdays": false,
+    "unknown_holiday_policy": "pause_proactive_actions",
+    "mail_time": "08:30",
+    "review_time": "20:20",
+    "lesson_start": "20:30",
+    "lesson_end": "21:10",
+    "weekly_report_weekday_iso": 5,
+    "weekly_report_time": "21:20",
+    "holiday_report_policy": "last_study_day_of_week",
+    "holiday_lookahead_days": 90
+  },
+  "workload": {
+    "target_minutes": 55,
+    "normal_range_minutes": [50, 60],
+    "material_minutes": 7,
+    "review_minutes": 8,
+    "core_lesson_minutes": 40,
+    "new_concepts_max": 2,
+    "review_items_range": [3, 5],
+    "new_cards_max": 3
+  },
+  "review": {
+    "algorithm": "simple-calendar-day-ladder-v1",
+    "interval_days": [1, 3, 7, 14, 30],
+    "mastery_independent_successes": 3,
+    "require_different_dates": true,
+    "require_transfer_success": true,
+    "early_practice_advances_schedule": false
+  },
+  "cleanup": {
+    "enabled": false,
+    "temporary_answer_retention_hours": 72,
+    "rest_day_policy": "defer_to_next_study_day",
+    "mode": "trash_or_managed_archive",
+    "answer_root_id": null,
+    "authorization_ref": null
+  },
+  "hooks": {
+    "mail": {"mode": "manual", "provider": null, "recipient": null, "authorization_ref": null},
+    "storage": {"mode": "manual", "provider": null, "root_id": null, "authorization_ref": null},
+    "calendar": {"mode": "manual", "provider": null, "calendar_id": null, "authorization_ref": null},
+    "holiday_calendar": {"mode": "manual", "provider": null, "source_id": null},
+    "flashcards": {"mode": "manual", "provider": null, "deck_id": null},
+    "automations": {"mode": "manual", "provider": null, "job_ids": [], "authorization_ref": null},
+    "assessment": {"mode": "manual", "provider": null},
+    "charts": {"mode": "manual", "provider": null}
+  }
+}
