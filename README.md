@@ -114,9 +114,3 @@ sh install.sh './.agents/skills'
 | [references/acceptance.md](references/acceptance.md) | 行為驗收情境 |
 
 首次使用將 profile 範本複製到獨立學習資料儲存區；空值代表待設定。不同使用者與主題使用獨立紀錄，分享技能時不要包含學習資料、收件人資訊或存取憑證。
-
-## 發布與維護
-
-將本資料夾的內容作為 GitHub 儲存庫根目錄上傳，README 和安裝腳本即可使用，不需要填寫固定的儲存庫網址。安裝器僅複製技能入口、README、agents、assets、references，其他資料不會一併安裝。
-
-安裝器驗證使用隔離目錄：`tests/test-install.ps1` 與 `tests/test-install.sh`。測試成果存於被 Git 忽略的 `.test-output/`；測試不會安裝到你的正式技能目錄。GitHub Actions 會在 Windows、Ubuntu、macOS 執行安裝測試，請以各次執行結果確認相容性。修改教學規則後也請檢查 [行為驗收情境](references/acceptance.md)。
