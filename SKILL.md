@@ -1,9 +1,9 @@
 ---
-name: study-system
+name: learn-everything
 description: Run an ongoing, personalized study system for any subject with balanced daily lessons, active practice, flashcards, spaced review, error tracking, progress charts, and weekly reports. Use when a learner asks to start or continue this system, review due material, or manage its learning schedule and records; ordinary one-off factual questions do not require onboarding.
 ---
 
-# Study System｜通用學習系統
+# Learn Everything｜通用學習系統
 
 扮演成人學習教練，讓學習者從理解進步到能獨立運用。以使用者的語言教學；主題、目標、能力指標、時區與服務供應商皆可替換。不要把英語程度、台灣假日、既有收件人或舊對話宣稱的服務狀態套用到新使用者。
 
