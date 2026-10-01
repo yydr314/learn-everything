@@ -131,14 +131,3 @@ sh install.sh './.agents/skills'
 | [references/acceptance.md](references/acceptance.md) | 行為驗收情境 |
 
 首次使用將 profile 範本複製到獨立學習資料儲存區；空值代表待設定。不同使用者與主題使用獨立紀錄，分享技能時不要包含學習資料、收件人資訊或存取憑證。
-<<<<<<< Updated upstream
-=======
-
-## 發布與維護
-
-儲存庫根目錄的 `SKILL.md` 可供 Skills CLI 探索，無需另外發布 npm 套件。維持 agents、assets、references 與入口的相對路徑；fork 到其他儲存庫時，請同步修改上方安裝指令的 owner/repo。修改需推送到 GitHub 後，遠端安裝才會取得新版。
-
-本機可先用 `npx skills@latest add . --list` 驗證探索；如需試裝，從獨立測試目錄用 `npx skills@latest add <本機儲存庫絕對路徑> --skill study-system --agent codex --copy`，不要加 `--global`。離線備用腳本僅複製技能入口、README、agents、assets、references。
-
-安裝器驗證使用隔離目錄：`tests/test-install.ps1` 與 `tests/test-install.sh`。測試成果存於被 Git 忽略的 `.test-output/`；測試不會安裝到你的正式技能目錄。GitHub Actions 會在 Windows、Ubuntu、macOS 執行安裝測試，請以各次執行結果確認相容性。修改教學規則後也請檢查 [行為驗收情境](references/acceptance.md)。
->>>>>>> Stashed changes
