@@ -3,7 +3,7 @@
 Skill 是可分享的規則包；學習者資料存獨立的儲存區。每個 learner_id / subject_id 獨立，切換主題不覆寫其他主題。以下邏輯結構可映射至 Google Drive 或使用者選擇的儲存服務；依已啟用功能建立需要的項目即可。
 
 ```text
-Study System/
+Learn Everything/
   learner-id/
     subject-id/
       00-profile/profile.json

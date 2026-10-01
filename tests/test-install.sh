@@ -5,7 +5,7 @@ mkdir -p "$repo/.test-output"
 test_root=$(mktemp -d "$repo/.test-output/sh-XXXXXX")
 destination="$test_root/space test/skills"
 sh "$repo/install.sh" "$destination"
-installed="$destination/study-system"
+installed="$destination/learn-everything"
 for name in SKILL.md README.md; do
     cmp "$repo/$name" "$installed/$name"
 done

@@ -14,12 +14,12 @@ try {
         }
     }
     $parent = [IO.Path]::GetFullPath($SkillsDir)
-    $target = Join-Path $parent 'study-system'
+    $target = Join-Path $parent 'learn-everything'
     if (Test-Path -LiteralPath $target) {
         throw "Already exists: $target. Back up and move the existing skill before installing again."
     }
     New-Item -ItemType Directory -Path $parent -Force | Out-Null
-    $stage = Join-Path $parent ('.study-system-install-' + [guid]::NewGuid().ToString('N'))
+    $stage = Join-Path $parent ('.learn-everything-install-' + [guid]::NewGuid().ToString('N'))
     New-Item -ItemType Directory -Path $stage | Out-Null
     foreach ($name in $required) {
         Copy-Item -LiteralPath (Join-Path $source $name) -Destination $stage -Recurse
@@ -28,7 +28,7 @@ try {
     [IO.Directory]::Move($stage, $target)
     $stage = $null
     Write-Host "Installed: $target"
-    Write-Host 'Open a new Codex chat and use $study-system. Restart the app if needed.'
+    Write-Host 'Open a new Codex chat and use $learn-everything. Restart the app if needed.'
     exit 0
 } catch {
     [Console]::Error.WriteLine($_.Exception.Message)

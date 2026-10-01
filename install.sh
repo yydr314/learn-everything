@@ -15,7 +15,7 @@ for name in SKILL.md README.md agents assets references; do
 done
 mkdir -p -- "$skills_dir"
 skills_dir=$(CDPATH= cd -- "$skills_dir" && pwd)
-target=$skills_dir/study-system
+target=$skills_dir/learn-everything
 if [ -e "$target" ] || [ -L "$target" ]; then
     printf 'Already exists: %s. Back up and move the existing skill before installing again.\n' "$target" >&2
     exit 1
@@ -28,4 +28,4 @@ for name in SKILL.md README.md agents assets references; do
 done
 trap - 0
 printf 'Installed: %s\n' "$target"
-printf '%s\n' 'Open a new Codex chat and use $study-system. Restart the app if needed.'
+printf '%s\n' 'Open a new Codex chat and use $learn-everything. Restart the app if needed.'

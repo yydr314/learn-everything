@@ -1,4 +1,4 @@
-# Learn Everything — Study System｜通用學習系統
+# Learn Everything｜通用學習系統
 
 將任何想學的主題，變成一套有進度、有練習、有回饋的每日學習流程。
 
@@ -14,10 +14,10 @@
 npx skills@latest add yydr314/learn-everything
 ```
 
-依提示選擇 `study-system` 與要使用的 agent。預設安裝在目前專案；若希望跨專案使用，可全域安裝。以下直接指定 Codex：
+依提示選擇 `learn-everything` 與要使用的 agent。預設安裝在目前專案；若希望跨專案使用，可全域安裝。以下直接指定 Codex：
 
 ```sh
-npx skills@latest add yydr314/learn-everything --skill study-system --agent codex --global
+npx skills@latest add yydr314/learn-everything --skill learn-everything --agent codex --global
 ```
 
 Windows 若無法建立符號連結，可加 `--copy`。安裝需要網路下載 CLI 與 skill；只想查看可安裝項目時使用：
@@ -30,7 +30,7 @@ npx skills@latest add yydr314/learn-everything --list
 
 在你的 agent 開啟新對話，輸入：
 
-> 使用 $study-system 帶我學英文，每天 30 分鐘。
+> 使用 $learn-everything 帶我學英文，每天 30 分鐘。
 
 **初次使用就會自動進行入門設定，不需要另外說「setup」。** 系統第一輪回覆會詢問學習需求，並主動讓你複選：每日教材 Email、複習／上課提醒、每週學習報告寄送、雲端同步、日曆排課、外部字卡或自訂自動化；也可以選擇只在對話學習或稍後決定。選擇外部流程後，會確認收件人／目的地、時區、時間與操作範圍，實際檢查對應服務。
 
@@ -40,16 +40,16 @@ npx skills@latest add yydr314/learn-everything --list
 
 ```sh
 npx skills@latest update
-npx skills@latest remove study-system
+npx skills@latest remove learn-everything
 ```
 
 `update` 會檢查 CLI 管理的已安裝 skills；更新前先備份自行修改的 skill 檔案。全域安裝移除時加 `--global`。學習紀錄應保存在獨立資料目錄，更新／移除 skill 不需刪除學習紀錄。
 
-先前用本專案腳本安裝的版本，請先備份並將原 `study-system` 移出技能搜尋目錄，再以 CLI 重新安裝；避免專案與全域保留重複版本。CLI 安裝與手動腳本擇一使用。
+先前用本專案腳本安裝的版本，請先備份並將原 `learn-everything` 移出技能搜尋目錄，再以 CLI 重新安裝；避免專案與全域保留重複版本。CLI 安裝與手動腳本擇一使用。
 
 ### 離線備用安裝
 
-沒有 Node.js 時，可[下載完整 ZIP](https://github.com/yydr314/learn-everything/archive/HEAD.zip)，解壓後在 Windows 雙擊 `install.cmd`，或在 macOS / Linux 執行 `sh install.sh`。腳本本身不連網，預設安裝到 `~/.agents/skills/study-system`；不能只下載腳本。
+沒有 Node.js 時，可[下載完整 ZIP](https://github.com/yydr314/learn-everything/archive/HEAD.zip)，解壓後在 Windows 雙擊 `install.cmd`，或在 macOS / Linux 執行 `sh install.sh`。腳本本身不連網，預設安裝到 `~/.agents/skills/learn-everything`；不能只下載腳本。
 
 自訂位置時，參數是技能目錄的父資料夾：
 
@@ -63,17 +63,17 @@ npx skills@latest remove study-system
 sh install.sh './.agents/skills'
 ```
 
-安裝器不覆寫既有的 `study-system`。更新時先將原有技能資料夾備份移出技能搜尋目錄，再執行新版安裝器；學習資料應另存，不放在技能資料夾內。移除時刪除安裝的技能資料夾即可，獨立保存的學習紀錄不受影響。
+安裝器不覆寫既有的 `learn-everything`。更新時先將原有技能資料夾備份移出技能搜尋目錄，再執行新版安裝器；學習資料應另存，不放在技能資料夾內。移除時刪除安裝的技能資料夾即可，獨立保存的學習紀錄不受影響。
 
 ## 開始學習
 
 安裝完成後，可以直接說：
 
-> 使用 $study-system 帶我學 Kubernetes。我的目標是能獨立排查服務連線問題，每天 30 分鐘，週末休息。請先診斷我的程度。
+> 使用 $learn-everything 帶我學 Kubernetes。我的目標是能獨立排查服務連線問題，每天 30 分鐘，週末休息。請先診斷我的程度。
 
 也可以換成：
 
-> 使用 $study-system 帶我練習職場英文。我目前約多益 590 分，希望能在軟體工程會議中清楚表達想法。
+> 使用 $learn-everything 帶我練習職場英文。我目前約多益 590 分，希望能在軟體工程會議中清楚表達想法。
 
 系統會確認你的學習目標、先備知識、教學語言、每日時間、時區、休息規則，以及想啟用的 hook 流程。以上程度與時間只是示例，不會套用到每個人。
 

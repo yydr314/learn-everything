@@ -8,7 +8,7 @@ $installer = Join-Path $repo 'install.ps1'
 
 & $shell -NoProfile -ExecutionPolicy Bypass -File $installer -SkillsDir $destination
 if ($LASTEXITCODE -ne 0) { throw 'First installation failed' }
-$installed = Join-Path $destination 'study-system'
+$installed = Join-Path $destination 'learn-everything'
 $expected = @('SKILL.md', 'README.md', 'agents', 'assets', 'references')
 foreach ($name in $expected) {
     $origin = Join-Path $repo $name
