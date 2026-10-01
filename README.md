@@ -4,37 +4,54 @@
 
 適用於職場英語、日文、程式設計、Kubernetes、演算法、會計等主題。系統先了解你的目標與程度，再安排適量課程；用主動輸出、錯題紀錄與間隔複習追蹤你是否真的會用。
 
-## 一鍵安裝
+## 安裝與初次使用
 
-**[下載安裝包（ZIP）](https://github.com/yydr314/learn-everything/archive/HEAD.zip)** · **[GitHub 儲存庫](https://github.com/yydr314/learn-everything)**
+### 1. 安裝 skill
 
-下載完整 ZIP（或在 GitHub 點選 **Code → Download ZIP**），解壓縮後：
-
-| 系統 | 安裝方式 |
-|---|---|
-| Windows | 雙擊 **[install.cmd](https://github.com/yydr314/learn-everything/blob/HEAD/install.cmd)** |
-| macOS / Linux | 在解壓縮的資料夾執行 **`sh install.sh`** |
-
-Windows 使用系統內建 Windows PowerShell；macOS / Linux 使用 `sh`。不需 Python、Node.js 或額外套件，安裝過程不連網。請下載整個儲存庫，不能只下載安裝腳本。GitHub 頁面上的連結負責下載，解壓後才執行安裝。
-
-已安裝 Git 的使用者也可以下載後直接安裝：
-
-```powershell
-git clone https://github.com/yydr314/learn-everything.git
-if ($LASTEXITCODE -eq 0) { & ./learn-everything/install.cmd }
-```
+使用 [Skills CLI](https://github.com/vercel-labs/skills)，採用與 [mattpocock/skills](https://github.com/mattpocock/skills#installation-30-second-setup) 相同的 `npx skills add` 安裝方式。先安裝 Node.js（含 npm / npx）與 Git，在終端機執行：
 
 ```sh
-git clone https://github.com/yydr314/learn-everything.git && sh learn-everything/install.sh
+npx skills@latest add yydr314/learn-everything
 ```
 
-安裝器會將技能與配套文件安裝到 `~/.agents/skills/study-system`。完成後，在 Codex 開啟新對話並輸入 `$study-system`；若未出現，重新啟動應用程式。這個安裝位置依據 [OpenAI 的技能文件](https://learn.chatgpt.com/docs/build-skills)。
+依提示選擇 `study-system` 與要使用的 agent。預設安裝在目前專案；若希望跨專案使用，可全域安裝。以下直接指定 Codex：
 
-這是技能檔案的安裝器，不會把技能發布到 ChatGPT 網頁版或插件商店。其他支援 Agent Skills 的應用程式，請使用其技能匯入功能；跨 ChatGPT 介面的分發方式請參考 [官方插件封裝說明](https://developers.openai.com/plugins/build/plugins)。
+```sh
+npx skills@latest add yydr314/learn-everything --skill study-system --agent codex --global
+```
 
-### 自訂安裝位置
+Windows 若無法建立符號連結，可加 `--copy`。安裝需要網路下載 CLI 與 skill；只想查看可安裝項目時使用：
 
-參數是「技能目錄的父資料夾」，安裝器會在其下建立 `study-system`：
+```sh
+npx skills@latest add yydr314/learn-everything --list
+```
+
+### 2. 直接開始學習
+
+在你的 agent 開啟新對話，輸入：
+
+> 使用 $study-system 帶我學英文，每天 30 分鐘。
+
+**初次使用就會自動進行入門設定，不需要另外說「setup」。** 系統第一輪回覆會詢問學習需求，並主動讓你複選：每日教材 Email、複習／上課提醒、每週學習報告寄送、雲端同步、日曆排課、外部字卡或自訂自動化；也可以選擇只在對話學習或稍後決定。選擇外部流程後，會確認收件人／目的地、時區、時間與操作範圍，實際檢查對應服務。
+
+**尚未串接或權限不足時，系統會提醒你連接服務、開啟必要權限，並將該流程列為待設定。** 完成連接後說「已連接好了」即可接續驗證。可先開始對話課程；只有具備能力、已授權且工具回報成功的流程，才會顯示已啟用。
+
+### 3. 更新或移除
+
+```sh
+npx skills@latest update
+npx skills@latest remove study-system
+```
+
+`update` 會檢查 CLI 管理的已安裝 skills；更新前先備份自行修改的 skill 檔案。全域安裝移除時加 `--global`。學習紀錄應保存在獨立資料目錄，更新／移除 skill 不需刪除學習紀錄。
+
+先前用本專案腳本安裝的版本，請先備份並將原 `study-system` 移出技能搜尋目錄，再以 CLI 重新安裝；避免專案與全域保留重複版本。CLI 安裝與手動腳本擇一使用。
+
+### 離線備用安裝
+
+沒有 Node.js 時，可[下載完整 ZIP](https://github.com/yydr314/learn-everything/archive/HEAD.zip)，解壓後在 Windows 雙擊 `install.cmd`，或在 macOS / Linux 執行 `sh install.sh`。腳本本身不連網，預設安裝到 `~/.agents/skills/study-system`；不能只下載腳本。
+
+自訂位置時，參數是技能目錄的父資料夾：
 
 ```powershell
 # Windows PowerShell
@@ -58,7 +75,7 @@ sh install.sh './.agents/skills'
 
 > 使用 $study-system 帶我練習職場英文。我目前約多益 590 分，希望能在軟體工程會議中清楚表達想法。
 
-系統會確認你的學習目標、先備知識、教學語言、每日時間、時區與休息規則。以上程度與時間只是示例，不會套用到每個人。
+系統會確認你的學習目標、先備知識、教學語言、每日時間、時區、休息規則，以及想啟用的 hook 流程。以上程度與時間只是示例，不會套用到每個人。
 
 | 想做的事 | 可以這樣說 |
 |---|---|
@@ -87,7 +104,7 @@ sh install.sh './.agents/skills'
 
 ## 可選服務
 
-不用串接服務就能在對話中開始學習。要長期保存紀錄、寄信或自動提醒，再依需求配置 hooks：
+初次使用會主動詢問以下可選流程；不用串接服務也能在對話中開始學習，之後可隨時調整：
 
 | Hook | 用途 |
 |---|---|
@@ -114,3 +131,14 @@ sh install.sh './.agents/skills'
 | [references/acceptance.md](references/acceptance.md) | 行為驗收情境 |
 
 首次使用將 profile 範本複製到獨立學習資料儲存區；空值代表待設定。不同使用者與主題使用獨立紀錄，分享技能時不要包含學習資料、收件人資訊或存取憑證。
+<<<<<<< Updated upstream
+=======
+
+## 發布與維護
+
+儲存庫根目錄的 `SKILL.md` 可供 Skills CLI 探索，無需另外發布 npm 套件。維持 agents、assets、references 與入口的相對路徑；fork 到其他儲存庫時，請同步修改上方安裝指令的 owner/repo。修改需推送到 GitHub 後，遠端安裝才會取得新版。
+
+本機可先用 `npx skills@latest add . --list` 驗證探索；如需試裝，從獨立測試目錄用 `npx skills@latest add <本機儲存庫絕對路徑> --skill study-system --agent codex --copy`，不要加 `--global`。離線備用腳本僅複製技能入口、README、agents、assets、references。
+
+安裝器驗證使用隔離目錄：`tests/test-install.ps1` 與 `tests/test-install.sh`。測試成果存於被 Git 忽略的 `.test-output/`；測試不會安裝到你的正式技能目錄。GitHub Actions 會在 Windows、Ubuntu、macOS 執行安裝測試，請以各次執行結果確認相容性。修改教學規則後也請檢查 [行為驗收情境](references/acceptance.md)。
+>>>>>>> Stashed changes

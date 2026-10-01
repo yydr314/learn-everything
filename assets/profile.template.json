@@ -52,6 +52,11 @@
     "answer_root_id": null,
     "authorization_ref": null
   },
+  "hook_setup": {
+    "completed_at": null,
+    "workflows": [],
+    "verification": {}
+  },
   "hooks": {
     "mail": {"mode": "manual", "provider": null, "recipient": null, "authorization_ref": null},
     "storage": {"mode": "manual", "provider": null, "root_id": null, "authorization_ref": null},
